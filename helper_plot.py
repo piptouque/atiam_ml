@@ -81,7 +81,7 @@ def plot_patterns(P,D):
     #Dcopy[Dcopy == 0] = 1
     for i in range(nPats):
         c = Dcopy[i]
-        ax.scatter(P[0,i], P[1,i], marker=symbols[c], c=colors[c], s=50, linewidths=2, edgecolor='w')
+        ax.scatter(P[0,i], P[1,i], marker=symbols[c], color=colors[c], s=50, linewidths=2, edgecolor='w')
     #ax.legend()
     ax.grid(True)
     return fig
@@ -111,10 +111,10 @@ def visualize_boundary_linear(X, y, model):
     plt.figure(figsize=(12, 8))
     pos = (y == 1)[:, 0] 
     neg = (y == -1)[:, 0]
-    plt.scatter(X[pos, 0], X[pos, 1], marker='x', linewidths=2, s=23, c=[0, 0.5, 0])
-    plt.scatter(X[neg, 0], X[neg, 1], marker='o', linewidths=2, s=23, c=[1, 0, 0])
+    plt.scatter(X[pos, 0], X[pos, 1], marker='x', linewidths=2, s=23, color=[0, 0.5, 0])
+    plt.scatter(X[neg, 0], X[neg, 1], marker='o', linewidths=2, s=23, color=[1, 0, 0])
     plt.plot(xp, yp, '-b')
-    plt.scatter(model["X"][:, 0], model["X"][:, 1], marker='o', linewidths=4, s=40, c=None, edgecolors=[0.1, 0.1, 0.1])
+    plt.scatter(model["X"][:, 0], model["X"][:, 1], marker='o', linewidths=4, s=40, color=None, edgecolors=[0.1, 0.1, 0.1])
     
 def plot_data(X, y):
     #PLOTDATA Plots the data points X and y into a new figure 
@@ -128,8 +128,8 @@ def plot_data(X, y):
     neg = (y == 0)[:, 0]
     # Plot Examples
     fig = plt.figure(figsize=(12, 8))
-    plt.scatter(X[pos, 0], X[pos, 1], marker='x', edgecolor='k', linewidths=2, s=50, c=[0, 0.5, 0])
-    plt.scatter(X[neg, 0], X[neg, 1], marker='o', edgecolor='k', linewidths=2, s=50, c=[1, 0, 0])
+    plt.scatter(X[pos, 0], X[pos, 1], marker='x', edgecolor='k', linewidths=2, s=50, color=[0, 0.5, 0])
+    plt.scatter(X[neg, 0], X[neg, 1], marker='o', edgecolor='k', linewidths=2, s=50, color=[1, 0, 0])
     return fig
 
 def visualize_boundary(X, y, model):
@@ -148,9 +148,9 @@ def visualize_boundary(X, y, model):
         this_X = np.vstack((X1[:, i], X2[:, i]))
         vals[:, i] = svmPredict(model, this_X)
     # Plot the SVM boundary
-    plt.contour(X1, X2, vals, [1, 1], c='b')
+    plt.contour(X1, X2, vals, [1, 1], color='b')
     # Plot the support vectors
-    plt.scatter(model["X"][:, 0], model["X"][:, 1], marker='o', linewidths=4, s=10, c=[0.1, 0.1, 0.1])
+    plt.scatter(model["X"][:, 0], model["X"][:, 1], marker='o', linewidths=4, s=10, color=[0.1, 0.1, 0.1])
     
 def plot_svc_decision_function(model, ax=None, plot_support=True):
     """Plot the decision function for a 2D SVC"""
